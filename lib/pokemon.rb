@@ -17,10 +17,6 @@ class Pokemon
 
     pk_info = db_connect.execute("SELECT * FROM pokemon WHERE id = ?", id_num).flatten
 
-    #pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num).flatten
-    #pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id_num).flatten
-    #pk_hp = db_connect.execute("SELECT hp FROM pokemon WHERE id = ?", id_num).flatten
-
     self.new(id: id_num, name: pk_info[1], type: pk_info[2], hp: pk_info[3], db: db_connect)
   end
 
