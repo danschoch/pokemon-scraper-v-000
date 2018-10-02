@@ -17,6 +17,6 @@ class Pokemon
     pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id)
     pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id)
 
-    self.new(id: pk_id, name: pk_name, type: pk_type, db: db_connect)
+    self.new(id: pk_id[0], name: pk_name, type: pk_type, db: db_connect)
   end
 end
