@@ -22,6 +22,6 @@ class Pokemon
 
     #binding.pry
 
-    self.new(id: id_num, name: pk_name, type: pk_type, db: db_connect)
+    self.new(id: id_num, name: pk_name[0], type: pk_type[0], db: db_connect)
   end
 end
