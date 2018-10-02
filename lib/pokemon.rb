@@ -14,11 +14,14 @@ class Pokemon
   end
 
   def self.find (id_num, db_connect)
-    pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num).flatten
-    pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id_num).flatten
-    pk_hp = db_connect.execute("SELECT hp FROM pokemon WHERE id = ?", id_num).flatten
 
-    self.new(id: id_num, name: pk_name[0], type: pk_type[0], hp: pk_hp[0], db: db_connect)
+    pk_info = db_connect.execute("SELECT * FROM pokemon WHERE id = ?", id_num).flatten
+
+    #pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num).flatten
+    #pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id_num).flatten
+    #pk_hp = db_connect.execute("SELECT hp FROM pokemon WHERE id = ?", id_num).flatten
+
+    self.new(id: id_num, name: pk_info[1], type: pk_info[2], hp: pk_info[3], db: db_connect)
   end
 
   def alter_hp (new_hp, db)
