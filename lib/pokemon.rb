@@ -9,7 +9,7 @@ class Pokemon
   end
 
   def save (name, type, db_connect)
-    db_connect.execute("INSERT INTO pokemon (name, type) VALUES (?, ?, ?)",name, breed, age)
-    
+    db_connect.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)",name, type)
+
   end
 end
