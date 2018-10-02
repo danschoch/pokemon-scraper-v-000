@@ -14,7 +14,7 @@ class Pokemon
 
   def self.find (id_num, db_connect)
     #pk_id = db_connect.execute("SELECT id FROM pokemon WHERE id = ?", id_num)
-    pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num)
+    pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num).flatten
     pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id_num)
 
     #pokemon_info = db.execute("SELECT * FROM pokemon WHERE id=?", id_num).flatten
