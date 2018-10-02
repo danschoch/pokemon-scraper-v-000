@@ -12,8 +12,8 @@ class Pokemon
     db_connect.execute("INSERT INTO pokemon (name, type) VALUES (?, ?)",name, type)
   end
 
-  def self.find (id_num, db)
-    pk_id = db_connect.execute("SELECT id FROM pokemon WHERE id = ?", id_num)
+  def self.find (id_num, db_connect)
+    #pk_id = db_connect.execute("SELECT id FROM pokemon WHERE id = ?", id_num)
     pk_name = db_connect.execute("SELECT name FROM pokemon WHERE id = ?", id_num)
     pk_type = db_connect.execute("SELECT type FROM pokemon WHERE id = ?", id_num)
 
@@ -22,6 +22,6 @@ class Pokemon
 
     #binding.pry
 
-    self.new(id: pk_id, name: pk_name, type: pk_type, db: db_connect)
+    self.new(id: id, name: pk_name, type: pk_type, db: db_connect)
   end
 end
